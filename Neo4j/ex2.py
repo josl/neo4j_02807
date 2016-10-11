@@ -19,9 +19,9 @@ products. Return all the orders made by ALFKI and the products they contain.
 def ex2():
     productID = 'ALFKI'
     query = '''
-        MATCH (c:Customer)-[:PURCHASED]->(o:Order)-[:ORDERS]->(p:Product) WHERE
-            c.customerID = 'ALFKI'
-        RETURN collect(o.orderID) as Order, p.productName as Product
+        MATCH (c:Customer)-[:PURCHASED]->(o:Order)-[:ORDERS]->(p:Product)
+        WHERE c.customerID = 'ALFKI'
+        RETURN o.orderID as Order, p.productName as Product
     ''' % productID
 
     # ╒═════╤══════════════════════════════╕
